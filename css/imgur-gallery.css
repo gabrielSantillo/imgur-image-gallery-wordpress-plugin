@@ -1,1 +1,25 @@
-/* I have no style here because I don't how the images are  */
+.imgur-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+ }
+ 
+ .imgur-gallery img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+ }
+
+ @media (max-width: 768px) {
+    .imgur-gallery {
+       grid-template-columns: repeat(2, 1fr);
+    }
+ }
+
+ @media (max-width: 375px) {
+    .imgur-gallery {
+       grid-template-columns: 1fr;
+    }
+ }
+ 

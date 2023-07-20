@@ -56,6 +56,8 @@ class Imgur_Image_Gallery_Plugin {
            </div>
         </div>
         <?php
+
+
     
         return ob_get_clean(); // Return the generated HTML markup
     }

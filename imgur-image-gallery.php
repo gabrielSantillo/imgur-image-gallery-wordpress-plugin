@@ -42,11 +42,25 @@ class Imgur_Image_Gallery_Plugin {
      * @return string Generated HTML markup for the image gallery.
      */
     public function imgur_gallery_shortcode() {
-        // Include the Angular.js template file
-        include_once(plugin_dir_path(__FILE__) . 'templates/imgur-gallery-template.php');
+        ob_start(); // Start output buffering
+    
+        // Angular template code
+        ?>
+        <div ng-app="imgurGalleryApp">
+           <div ng-controller="ImgurGalleryController as galleryCtrl">
+              <div class="imgur-gallery">
+                 <div ng-repeat="image in galleryCtrl.images">
+                    <img ng-src="{{ image.link }}" alt="{{ image.title }}">
+                 </div>
+              </div>
+           </div>
+        </div>
+        <?php
+    
+        return ob_get_clean(); // Return the generated HTML markup
     }
+    
 }
 
-// Instantiate the Imgur_Image_Gallery_Plugin class
 $imgur_image_gallery_plugin = new Imgur_Image_Gallery_Plugin();
 

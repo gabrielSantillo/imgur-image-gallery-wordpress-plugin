@@ -49,8 +49,10 @@ class Imgur_Image_Gallery_Plugin {
         <div ng-app="imgurGalleryApp">
            <div ng-controller="ImgurGalleryController as galleryCtrl">
               <div class="imgur-gallery">
-                 <div ng-repeat="image in galleryCtrl.images">
-                    <img ng-src="{{ image.link }}" alt="{{ image.title }}">
+                 <div ng-repeat="imageGroup in galleryCtrl.imageGroups">
+                    <div ng-repeat="image in imageGroup.images">
+                        <img ng-src="{{ image.link }}" alt="{{ imageGroup.title }}">
+                    </div>
                  </div>
               </div>
            </div>
@@ -65,4 +67,3 @@ class Imgur_Image_Gallery_Plugin {
 }
 
 $imgur_image_gallery_plugin = new Imgur_Image_Gallery_Plugin();
-
